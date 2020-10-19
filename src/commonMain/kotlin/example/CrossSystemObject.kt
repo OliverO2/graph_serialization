@@ -63,9 +63,9 @@ open class CrossSystemReferenceSerializer<Type : CrossSystemObject> : KSerialize
 
         private val baseSerializer = CrossSystemReference.serializer().nullable
         // TODO: Commenting out the preceding line and uncommenting the following line will fail with the IR backend on JS
-        //      private val baseSerializer = serializer<VReference>().nullable
+        //      private val baseSerializer = serializer<CrossSystemReference>().nullable
         //      With the line above, running the jsTest task produces
-        //          SerializationException: Serializer for class 'VReference' is not found.
+        //          SerializationException: Serializer for class 'CrossSystemReference' is not found.
         //          Mark the class as @Serializable or provide the serializer explicitly.
         //          On Kotlin/JS explicitly declared serializer should be used for interfaces and enums without @Serializable annotation
     }
