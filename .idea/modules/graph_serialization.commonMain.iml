@@ -2,7 +2,7 @@
 <module version="4">
   <component name="FacetManager">
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="Common (experimental) " allPlatforms="JS []/JVM [1.6]/Native []/Native [general]" useProjectSettings="false" isTestModule="false" externalProjectId="graph_serialization">
+      <configuration version="3" platform="Common (experimental) " allPlatforms="JS []/JVM [1.6]/Native []/Native [general]" useProjectSettings="false" isTestModule="false" externalProjectId="graph_serialization" pureKotlinSourceFolders="$MODULE_DIR$/../../src/jsMain/kotlin;/home/oliver/Repositories/experimental/Kotlin/graph_serialization/build/externals/graph_serialization/src;/home/oliver/Repositories/experimental/Kotlin/graph_serialization/src/jsTest/kotlin;/home/oliver/Repositories/experimental/Kotlin/graph_serialization/src/jvmMain/kotlin;/home/oliver/Repositories/experimental/Kotlin/graph_serialization/src/jvmTest/kotlin;/home/oliver/Repositories/experimental/Kotlin/graph_serialization/src/commonMain/kotlin">
         <newMppModelJpsModuleKind>SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <compilerSettings>
           <option name="additionalArguments" value="-Xuse-experimental=kotlinx.serialization.ExperimentalSerializationApi" />
@@ -15,14 +15,14 @@
           </option>
           <option name="pluginClasspaths">
             <array>
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.4.10/c06dc95764119b3188034c644805de9b76148806/kotlin-gradle-plugin-api-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-jvm/1.4.10/89b312aa7b7944586c1e64e5ec52130d03019db0/kotlin-scripting-jvm-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-common/1.4.10/befe5a2bcae1e5b86691e0a0dfb0b3ef039b00a9/kotlin-scripting-common-1.4.10.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-gradle-plugin-api/1.4.20-M2/ecacfc8a2e53634546d73798a8ecd8b36387326f/kotlin-gradle-plugin-api-1.4.20-M2.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-jvm/1.4.20-M2/cebd12956082d4137520a5af6ea144c6f63762d9/kotlin-scripting-jvm-1.4.20-M2.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-common/1.4.20-M2/221ce5a50d5a432ca14637adf34f778a1bdfcd9b/kotlin-scripting-common-1.4.20-M2.jar" />
               <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.3.7/8e2eb78158638b33793d204ffef0b65c4a578e1c/kotlinx-coroutines-core-1.3.7.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.4.10/ea29e063d2bbe695be13e9d044dcfb0c7add398e/kotlin-stdlib-1.4.10.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.4.10/6229be3465805c99db1142ad75e6c6ddeac0b04c/kotlin-stdlib-common-1.4.10.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.4.20-M2/5f1493de301e00270495f147f91d728962cd4f95/kotlin-stdlib-1.4.20-M2.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.4.20-M2/3b41ba397f45908787f4256eb713c6450bb3f993/kotlin-stdlib-common-1.4.20-M2.jar" />
               <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.4.10/7c19d9c2001e016cd7664cebe9eea66fc04a7f4f/kotlin-script-runtime-1.4.10.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.4.20-M2/2f4cabd5566e7cc69e8750564d1168a590eb6ff/kotlin-script-runtime-1.4.20-M2.jar" />
               <option value="$KOTLIN_BUNDLED$/lib/kotlinx-serialization-compiler-plugin.jar" />
             </array>
           </option>

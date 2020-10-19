@@ -1,6 +1,6 @@
 plugins {
-    kotlin("multiplatform") version "1.4.10"
-    kotlin("plugin.serialization") version "1.4.10"
+    kotlin("multiplatform")
+    kotlin("plugin.serialization")
     application
 }
 group = "me.oliver"
@@ -9,6 +9,9 @@ version = "1.0-SNAPSHOT"
 repositories {
     mavenCentral()
     jcenter()
+    maven {
+        url = uri("https://dl.bintray.com/kotlin/kotlin-eap")
+    }
     maven {
         url = uri("https://dl.bintray.com/kotlin/kotlinx")
     }
