@@ -17,6 +17,8 @@ repositories {
     }
 }
 
+val kotlinVersion: String by project
+val coroutinesVersion = "1.4.0-M1"
 val serializationVersion = "1.0.0"
 val kotlinLoggingVersion = "2.0.3"
 val logbackVersion = "1.2.3"
@@ -53,6 +55,7 @@ kotlin {
         }
         val commonMain by getting {
             dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation("io.github.microutils:kotlin-logging:$kotlinLoggingVersion")
             }
@@ -61,6 +64,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
             }
         }

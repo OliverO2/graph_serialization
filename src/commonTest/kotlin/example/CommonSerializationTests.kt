@@ -11,7 +11,7 @@ import kotlin.test.assertTrue
 
 private val logger = KotlinLogging.logger {}
 
-class SerializationTests {
+open class CommonSerializationTests {
     init {
         initializeTests()
     }
@@ -52,7 +52,6 @@ class SerializationTests {
 
     @Test
     fun test_Json_Serialization() {
-        CrossSystemReferenceSerializer.sessionContext = SerializationSessionContext()
         aggregateProductComponent1.element2 = null
 
         Json { serializersModule = productSerializersModule }.run {
@@ -64,12 +63,16 @@ class SerializationTests {
 
     @Test
     fun test_Json_Cycle_Serialization() {
-        CrossSystemReferenceSerializer.sessionContext = SerializationSessionContext()
+        serializationSessionContext().run {
+            // clear the context's state resulting from a previous test
+            serializedObjectIDs.clear()
+            deserializedObjects.clear()
+        }
         aggregateProductComponent1.element2 = aggregateProductComponent2
 
         Json { serializersModule = productSerializersModule }.run {
             val encodedComponent = encodeToString(topComponent)
-            assertFailsWith<CrossSystemReferenceSerializer.DeserializationCycleException> {
+            assertFailsWith<DeserializationCycleException> {
                 decodeFromString<AggregateProductComponent>(encodedComponent)
             }
         }

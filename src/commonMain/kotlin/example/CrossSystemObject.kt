@@ -50,29 +50,10 @@ abstract class CrossSystemObject : CrossSystemReference() {
  */
 open class CrossSystemReferenceSerializer<Type : CrossSystemObject> : KSerializer<Type?> {
 
-    /**
-     * A [DeserializationCycleException] occurs when deserializing a descendant object referencing to some ancestor.
-     * As the ancestor object will be available only after its complete deserialization, it will be missing when a
-     * descendant's reference needs it.
-     */
-    class DeserializationCycleException(message: String) : SerializationException(message)
-
-    companion object {
-        var sessionContext = SerializationSessionContext()
-        // TODO: use https://github.com/Kotlin/kotlinx.coroutines/blob/master/docs/coroutine-context-and-dispatchers.md#thread-local-data
-
-        private val baseSerializer = CrossSystemReference.serializer().nullable
-        // TODO: Commenting out the preceding line and uncommenting the following line will fail with the IR backend on JS
-        //      private val baseSerializer = serializer<CrossSystemReference>().nullable
-        //      With the line above, running the jsTest task produces
-        //          SerializationException: Serializer for class 'CrossSystemReference' is not found.
-        //          Mark the class as @Serializable or provide the serializer explicitly.
-        //          On Kotlin/JS explicitly declared serializer should be used for interfaces and enums without @Serializable annotation
-    }
-
     override val descriptor: SerialDescriptor = baseSerializer.descriptor
 
     override fun serialize(encoder: Encoder, value: Type?) {
+        val sessionContext = serializationSessionContext()
         when {
             value == null -> {
                 baseSerializer.serialize(encoder, null)
@@ -92,6 +73,7 @@ open class CrossSystemReferenceSerializer<Type : CrossSystemObject> : KSerialize
     }
 
     override fun deserialize(decoder: Decoder): Type? {
+        val sessionContext = serializationSessionContext()
         when (val objectReference = baseSerializer.deserialize(decoder)) {
             null -> return null
 
@@ -115,7 +97,18 @@ open class CrossSystemReferenceSerializer<Type : CrossSystemObject> : KSerialize
             }
         }
     }
+
+    companion object {
+        private val baseSerializer = CrossSystemReference.serializer().nullable
+    }
 }
+
+/**
+ * A [DeserializationCycleException] occurs when deserializing a descendant object which references some ancestor.
+ * As the ancestor object will be available only after its complete deserialization, it will be missing when a
+ * descendant's reference needs it.
+ */
+class DeserializationCycleException(message: String) : SerializationException(message)
 
 /**
  * A session context governing the life-cycle of a serializable graph.
@@ -136,3 +129,10 @@ class SerializationSessionContext {
     // References to deserialized objects.
     internal val deserializedObjects = mutableMapOf<CrossSystemObjectID, CrossSystemObject>()
 }
+
+/**
+ * returns the current session's serialization context.
+ *
+ * See the documentation of its platform-specific implementations for requirements.
+ */
+expect fun serializationSessionContext(): SerializationSessionContext
